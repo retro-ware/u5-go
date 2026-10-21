@@ -26,10 +26,10 @@ import (
 	"strings"
 
 	"github.com/memmaker/u5-go/internal/game"
-	"github.com/memmaker/u5-go/internal/gameimport"
 	"github.com/memmaker/u5-go/internal/host"
 	"github.com/memmaker/u5-go/internal/music"
 	"github.com/memmaker/u5-go/internal/speaker"
+	"github.com/retro-ware/gameimport"
 )
 
 // markerFiles prove a folder holds Ultima V.
@@ -70,6 +70,9 @@ func main() {
 	defaultDir := os.Getenv("GOPLAY_DATA")
 	if defaultDir == "" {
 		defaultDir = "game"
+		if _, err := os.Stat("data"); err == nil {
+			defaultDir = "data" // goplay: started in games/u5 with no arguments
+		}
 	}
 	dir := flag.String("data", defaultDir, "directory with the original game files")
 	source := flag.String("import", "", "import the game files from this folder/zip/ISO/installer into -data and exit")

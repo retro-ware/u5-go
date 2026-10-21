@@ -9,8 +9,8 @@ import (
 	"strings"
 
 	"github.com/memmaker/u5-go/internal/adf"
-	"github.com/memmaker/u5-go/internal/gameimport"
 	"github.com/memmaker/u5-go/internal/music"
+	"github.com/retro-ware/gameimport"
 )
 
 // The Amiga version's extras worth having: the one thing it does better than the PC is
